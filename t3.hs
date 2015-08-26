@@ -6,7 +6,10 @@
 isEven :: Int -> Bool
 isEven n = mod n 2 == 0
 
--- A função mod realiza a divisão e retorna o resto da mesma. No caso da função isEven, é realizada a divisão do número desejado por 2 e comparado o valor do resto obtido com o valor zero. Se forem iguais, a função retorna True e o número testado é par. Se não, a função retorna False e o número não é par.
+-- A função mod realiza a divisão e retorna o resto da mesma. No caso da função 
+-- isEven, é realizada a divisão do número desejado por 2 e comparado o valor do resto
+-- obtido com o valor zero. Se forem iguais, a função retorna True e o número testado é par. 
+-- Se não, a função retorna False e o número não é par.
 
 -- Exercício 2
 
