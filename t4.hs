@@ -21,9 +21,9 @@ semVogais (x:xs) = if (x=='a')||(x=='e')||(x=='i')||(x=='o')||(x=='u')||(x=='A')
 
 -- Exercício 04
 
---translate :: [(Int, Int)] -> [(Int, Int)]
---translate [] = []
---translate tup = take 1 tup + [(2,2)] ++ translate (drop 1 tup) 
+translate :: [(Double,Double)] -> [(Double,Double)]
+translate [] = []
+translate ((a,b):xs) = (a+2,b+2) : translate xs 
 
 
 -- Exercício 05
