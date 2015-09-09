@@ -89,8 +89,8 @@ func :: [(a,b)] -> ([a,b])
 func [] = ([],[])
 func x = (a x, b x)
 		where	a [] = []
-			    a x = (fst (head x)) : a (tail x)
-			    b [] = []
+			a x = (fst (head x)) : a (tail x)
+			b [] = []
 		    	b x = (snd (head x)) : b (tail x)
 		    	
 -- Exercício 12:
@@ -103,5 +103,5 @@ func2 x = ([fst x | x<-x],[snd x | x<-x])
 
 func3 :: [(a,b)] -> ([a],[b])
 func3 [] = ([],[])
-func3 x = (map (fst) x, map (snd) x)
+func3 tup = (map (fst) tup, map (snd) tup)
 
