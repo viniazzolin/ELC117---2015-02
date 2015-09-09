@@ -80,7 +80,7 @@ pairWithAll a (x:xs) = (a, x): pairWithAll a xs
 
 genRects :: Int -> (Int, Int) -> [(Float, Float, Float, Float)]
 genRects n (x,y)  = if n > 0 
- then (fromIntegral x, fromIntegral y,5.5,5.5) : genRects (n-1) (fromIntegral(x+6),y)
+ then (fromIntegral x, fromIntegral y, 5.5, 5.5) : genRects (n-1) (fromIntegral(x+6),y)
  else otherwise = []
  
 -- Exercício 11:
@@ -97,7 +97,7 @@ func x = (a x, b x)
 
 func2 :: [(a,b)] -> ([a,b])
 func2 [] = ([],[])
-func2 x = ([fst x | x<-x],[snd x | x<-x])
+func2 tup = ([fst x | x<-tup],[snd x | x<-tup])
 
 -- Exercício 13:
 
