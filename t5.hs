@@ -78,23 +78,30 @@ pairWithAll a (x:xs) = (a, x): pairWithAll a xs
 
 -- Exercício 10:
 
--- genRects :: Int -> (Int, Int) -> [(Float, Float, Float, Float)]
--- genRects n (x,y) = 
-
+genRects :: Int -> (Int, Int) -> [(Float, Float, Float, Float)]
+genRects n (x,y)  = if n > 0 
+ then (fromIntegral x, fromIntegral y,5.5,5.5) : genRects (n-1) (fromIntegral(x+6),y)
+ else otherwise = []
+ 
 -- Exercício 11:
 
---func :: [(a,b)] -> ([a,b])
---func [] = []
---func ((a,b):xs) = (a,func xs)
-
+func :: [(a,b)] -> ([a,b])
+func [] = ([],[])
+func x = (a x, b x)
+		where	a [] = []
+			    a x = (fst (head x)) : a (tail x)
+			    b [] = []
+		    	b x = (snd (head x)) : b (tail x)
+		    	
 -- Exercício 12:
 
---func2 :: [(a,b)] -> ([a,b])
---func2 (c, d) = [(x,y) | x <- c, y <- d]
+func2 :: [(a,b)] -> ([a,b])
+func2 [] = ([],[])
+func2 x = ([fst x | x<-x],[snd x | x<-x])
 
 -- Exercício 13:
 
---func3 :: [(a,b)] -> ([a,b])
---func3 (a,b) = zipWith (+)(a, b)
-
+func3 :: [(a,b)] -> ([a],[b])
+func3 [] = ([],[])
+func3 x = (map (fst) x, map (snd) x)
 
