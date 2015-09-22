@@ -20,14 +20,16 @@ main :: IO ()
 main = do
   let
     hue = 120           -- Cor (0..360)
-    m = 9               -- Numero de Linhas de uma paleta de cores
-    n = 5               -- Numero de Colunas de uma paleta de cores
+    m = 10               -- Numero de Linhas de uma paleta de cores
+    n = 8               -- Numero de Colunas de uma paleta de cores
     lar = 60            -- Largura de cada Retangulo(width)
     alt = 30            -- Altura de cada Retangulo(height)
     dist = 2            -- Distancia entre os Retangulos
 
-    style = map(\(a,b) -> (printf"fill:hsl("++show hue++","++show a++"%,"++show b++"%)")) [(s,l) | s <- [100,ceiling(100-(100/(n-1)))..0], l <- [100,ceiling(100-(100/(m-1)))..0]] -- Matriz de Cores
-    rect =  map(\(a,b) -> ((a,b),lar,alt)) [(x*(lar+dist)+dist, y*(alt+dist)+dist) | x <- [0..n-1], y<- [0..m-1]] -- Matriz de Posições
+-- Matriz de Cores
+    style = map(\(a,b) -> (printf"fill:hsl("++show hue++","++show a++"%,"++show b++"%)")) [(s,l) | s <- [100,ceiling(100-(100/(n-1)))..0], l <- [100,ceiling(100-(100/(m-1)))..0]] 
+-- Matriz de Posições
+	rect =  map(\(a,b) -> ((a,b),lar,alt)) [(x*(lar+dist)+dist, y*(alt+dist)+dist) | x <- [0..n-1], y<- [0..m-1]] 
     rects = zip style rect
     (w,h) = ((lar+dist)*n,(alt+dist)*m)
-  writeFile "t6-p1.svg" $ writeRects w h rects
+  writeFile "colors.svg" $ writeRects w h rects
