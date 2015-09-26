@@ -29,17 +29,23 @@ mesmaPosicao(A,[L1|T1],[L2|T2]) :- A == L1, A == L2.
 mesmaPosicao(A,[L1|T1],[L2|T2]) :- A \== L1, A \== L2, mesmaPosicao(A,T1,T2). 
 
 % Exercício 7
+intercala(_,[],[]).
+intercala(_,L,L) :- length(L,O), O = 1. 
+intercala(A,[L1|T1],[L1,A|T2]) :- intercala(A,T1,T2). 
 
-intercala(A,M,L):- aux1(0,A,M,L).
-
-aux1(_,_,[],[]).  
-aux1(N, A, M,[L,T1]) :- N mod 2 =\= 0, L = A, P is N+1, aux1(P,A,M,T1).  
-aux1(N, A,[H|T],[L,T1]) :- N mod 2 =:= 0, L is H, P is N+1, aux1(P,A,T,T1).    
-
+% intercala(A,M,L):- aux1(0,A,M,L).
+% aux1(_,_,[],[]). 
+% aux1(N, A, M,[L,T1]) :- N mod 2 =\= 0, L = A, P is N+1, aux1(P,A,M,T1).  
+% aux1(N, A,[H|T],[L,T1]) :- N mod 2 =:= 0, L is H, P is N+1, aux1(P,A,T,T1).
+    
 % Exercício 8
 %comissao(NP,LP,C)
-%
+
 
 % Exercício 9
-%
-%
+azulejos(NA,NQ) :- aux2(0,NA,NQ).
+
+aux2(_,0,_). 
+aux2(N,NA,NQ):-  A is floor(sqrt(NA)), B is NA-(A*A), C is N+1, aux2(C,B,C).
+
+
