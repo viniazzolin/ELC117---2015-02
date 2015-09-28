@@ -43,7 +43,7 @@ comissao(0,_,[]).
 comissao(NP,LP,[C|T]) :- NP > 0, elem(C,LP,R), NP1 is NP-1, comissao(NP1,R,T).
 
 elem(X,[X|L],L).
-elem(X,[_|L],R) :- el(X,L,R).
+elem(X,[_|L],R) :- elem(X,L,R).
 
 
 % Exercício 9
