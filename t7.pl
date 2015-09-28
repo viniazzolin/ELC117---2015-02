@@ -47,9 +47,6 @@ elem(X,[_|L],R) :- el(X,L,R).
 
 
 % Exercício 9
-azulejos(NA,NQ) :- aux2(0,NA,NQ).
-
-aux2(_,0,_). 
-aux2(N,NA,NQ):-  A is floor(sqrt(NA)), B is NA-(A*A), aux2(N+1,B,N+1).
-
+azulejos(0,0) :- !.
+azulejos(NA,NQ) :- A is floor(sqrt(NA)),B is NA-(A^2),azulejos(B,L),NQ is L+1.
 
